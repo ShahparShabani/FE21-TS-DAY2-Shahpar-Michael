@@ -8,12 +8,13 @@ class Vehicles {
     public yearOfProduction: string,
     public price?: number
   ) {
+    vehicles.push(this);
   
   }
 
 
   startCard() {
-    return `<div class="card" style="width: 18rem;">
+    return `<div class="col"><div class="card" style="width: 18rem;">
         <img src="${this.image}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${this.model}</h5>
@@ -22,7 +23,7 @@ class Vehicles {
   endDiv() {
     return `<a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-      </div>`;
+      </div></div>`;
   }
 
   printCard() {
@@ -119,8 +120,8 @@ new Trucks(
   "2020-01-01", 0,4, 5
 );
 
+
 for (let vehicle of vehicles) {
-  console.log("in for");
   (document.getElementById("cardExample") as HTMLElement).innerHTML +=
     vehicle.printCard();
 }
