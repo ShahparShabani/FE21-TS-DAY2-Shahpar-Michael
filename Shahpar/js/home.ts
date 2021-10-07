@@ -1,57 +1,3 @@
-
-let vehicles: Array<Vehicles> = [];
-
-new Vehicles(
-  "John Doe",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
-);
-new Vehicles(
-  "BlaName",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
-);
-new Vehicles(
-  "Johanna",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
-);
-new Vehicles(
-  "Julio",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
-);
-
-new Motorbikes(
-  "John Doe",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
-  [1, 2, 3, 4, 5]
-);
-new Motorbikes(
-  "BlaName",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
-  [1, 2, 3, 4, 5]
-);
-new Trucks(
-  "Johanna",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
-  [1, 2, 3, 4, 5]
-);
-new Trucks(
-  "Julio",
-  32,
-  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
-  [1, 2, 3, 4, 5]
-);
-
-for (let Vehicles of people) {
-  (document.getElementById("cardExample") as HTMLElement).innerHTML +=
-    Vehicles.printCard();
-}
-
 class Vehicles {
   constructor(
     public image: string,
@@ -59,9 +5,12 @@ class Vehicles {
     public kilometersLeft: number,
     public numberOfSeats: number,
     public fuelType: string,
-    public yearOfProduction: number,
-    public price: number
-  ) {}
+    public yearOfProduction: string,
+    public price?: number
+  ) {
+  
+  }
+
 
   startCard() {
     return `<div class="card" style="width: 18rem;">
@@ -88,7 +37,7 @@ class Motorbikes extends Vehicles {
     public kilometersLeft: number,
     public numberOfSeats: number,
     public fuelType: string,
-    public yearOfProduction: number,
+    public yearOfProduction: string,
     public price: number,
     public hasSidecar: boolean
   ) {
@@ -107,7 +56,7 @@ class Trucks extends Vehicles {
     public kilometersLeft: number,
     public numberOfSeats: number,
     public fuelType: string,
-    public yearOfProduction: number,
+    public yearOfProduction: string,
     public price: number,
     public numberOfDoors: number, public numberOfAxels: number) {
     super(image, model,kilometersLeft, numberOfSeats, fuelType, yearOfProduction, price);
@@ -116,4 +65,62 @@ class Trucks extends Vehicles {
     return `${super.startCard()}
         <p class="card-text">and number of axels are ${this.numberOfAxels}.</p>`;
   }
+}
+
+let vehicles: Array<Vehicles> = [];
+
+new Vehicles(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+      300, 6,
+      "Benzin",
+      "2020-01-01"
+);
+new Vehicles(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+      300, 6,
+      "Benzin",
+      "2020-01-01"
+);
+new Vehicles(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+      300, 6,
+      "Benzin",
+      "2020-01-01"
+);
+new Vehicles(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+      300, 6,
+      "Benzin",
+      "2020-01-01"
+);
+
+new Motorbikes(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+      300, 6,
+      "Benzin",
+      "2020-01-01", 0 ,true
+);
+new Motorbikes(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+  300, 6,
+  "Benzin",
+  "2020-01-01", 0,false
+);
+new Trucks(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+  300, 6,
+  "Benzin",
+  "2020-01-01", 0,2,4
+);
+new Trucks(
+  "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg","ford torino",
+  300, 6,
+  "Benzin",
+  "2020-01-01", 0,4, 5
+);
+
+for (let vehicle of vehicles) {
+  console.log("in for");
+  (document.getElementById("cardExample") as HTMLElement).innerHTML +=
+    vehicle.printCard();
 }
