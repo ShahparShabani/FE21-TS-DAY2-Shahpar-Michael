@@ -1,0 +1,1 @@
+let fName3: string = "test";
